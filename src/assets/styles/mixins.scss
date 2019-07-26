@@ -1,0 +1,127 @@
+// html根元素font size媒体查询设置
+@mixin html-font {
+  @media screen and (max-width:320px) {
+    font-size: 31.25vw !important;
+  }
+
+  @media screen and (min-width:321px) and (max-width:375px) {
+    font-size: 26.666667vw !important;
+  }
+
+  @media screen and (min-width:414px) {
+    font-size: 24.154589vw !important;
+  }
+}
+
+// 1px边框
+@mixin border_1px($border-width:1px, $border-color: '#ccc', $border-style:solid, $radius:0) {
+  position: relative;
+
+  @if border-width==0 {
+    border-width: 0
+  }
+
+  border-radius:$radius;
+
+  &::after {
+    // 用以解决边框layer遮盖内容
+    pointer-events: none;
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    // fix当元素宽度出现小数时，边框可能显示不全的问题
+    // overflow: hidden;
+    content: "\0020";
+    border-color: $border-color;
+    border-style: $border-style;
+    border-width: $border-width;
+
+    // 适配dpr进行缩放
+    // @include responsive(retina1x) {
+    //     width: 100%;
+    //     height: 100%;
+    //     @if $radius != null {
+    //         border-radius: $radius;
+    //     }
+    // }
+    // @include responsive(retina2x) {
+    //     width: 200%;
+    //     height: 200%;
+    //     @include transform(scale(.5));
+    //     @if $radius != null {
+    //         border-radius: $radius * 2;
+    //     }
+    // }
+
+
+    @media (max--moz-device-pixel-ratio: 1.49) and(-webkit-max-device-pixel-ratio: 1.49) and(max-device-pixel-ratio: 1.49) and(max-resolution: 143dpi) and(max-resolution: 1.49dppx) {
+      width: 100%;
+      height: 100%;
+      transform: scale(1);
+
+      @if $radius !=0 {
+        border-radius: $radius * 1;
+      }
+    }
+
+    @media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49) and(-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49) and(min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49) and(min-resolution: 144dpi) and (max-resolution: 239dpi) and(min-resolution: 1.5dppx) and (max-resolution: 2.49dppx) {
+      width: 200%;
+      height: 200%;
+      transform: scale(.5);
+
+      @if $radius !=0 {
+        border-radius: $radius * 2;
+      }
+    }
+
+    @media (min--moz-device-pixel-ratio: 2.5) and (-webkit-min-device-pixel-ratio: 2.5) and (min-device-pixel-ratio: 2.5) and(min-resolution: 240dpi) and (min-resolution: 2.5dppx) {
+      width: 300%;
+      height: 300%;
+      transform: scale(.3333333);
+
+      @if $radius !=0 {
+        border-radius: $radius * 3;
+      }
+    }
+
+    transform-origin:0 0;
+    // @include responsive(retina3x) {
+    //     width: 300%;
+    //     height: 300%;
+    //     @include transform(scale(.33333));
+    //     @if $radius != null {
+    //         border-radius: $radius * 3;
+    //     }
+    // }
+  }
+}
+
+// 多行隔断效果
+@mixin wrap($is-wrap:true) {
+  @if $is-wrap==true {
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+
+  else {
+    white-space: nowrap;
+  }
+}
+
+@mixin ellipsis($width : 0, $line-clamp : 1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: $width;
+
+  @if abs($line-clamp)>1 {
+    // 要使得多行截取生效，display的值只能为-webkit-box
+    display: -webkit-box !important;
+    -webkit-line-clamp: $line-clamp;
+    @include wrap()
+  }
+
+  @else {
+    @include wrap(false)
+  }
+}

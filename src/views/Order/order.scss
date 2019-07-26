@@ -1,0 +1,17 @@
+.order {
+  height: inherit;
+  overflow: hidden;
+
+  .scroll-view {
+    height: 100%;
+  }
+
+  .order-container {
+    height: 10rem;
+
+    >li {
+      display: block;
+      height: 3rem;
+    }
+  }
+}

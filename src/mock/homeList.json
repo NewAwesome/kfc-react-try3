@@ -1,0 +1,76 @@
+{
+  "data": [{
+      "name": "美味尝鲜",
+      "bgImg": "../../assets/images/sy/美味尝鲜1.png",
+      "smImgs": [
+        "../../assets/images/sy/美味尝鲜2.png",
+        "../../assets/images/sy/美味尝鲜3.png",
+        "../../assets/images/sy/美味尝鲜4.png",
+        "../../assets/images/sy/美味尝鲜5.png"
+      ]
+    },
+    {
+      "name": "WOW会员",
+      "bgImg": "../../assets/images/sy/WOW会员1.png",
+      "smImgs": [
+        "../../assets/images/sy/WOW会员2.png",
+        "../../assets/images/sy/WOW会员3.png",
+        "../../assets/images/sy/WOW会员4.png",
+        "../../assets/images/sy/WOW会员5.png"
+      ]
+    },
+    {
+      "name": "商城 会员量贩",
+      "bgImg": "../../assets/images/sy/商城会员量贩1.png",
+      "sm-images": [
+        "../../assets/images/sy/商城会员量贩2.png",
+        "../../assets/images/sy/商城会员量贩3.png",
+        "../../assets/images/sy/商城会员量贩4.png",
+        "../../assets/images/sy/商城会员量贩5.png",
+        "../../assets/images/sy/商城会员量贩6.png"
+      ]
+    },
+    {
+      "name": "商城 V享好物",
+      "bgImg": "../../assets/images/sy/商城V享好物1.png",
+      "sm-images": [
+        "../../assets/images/sy/商城V享好物2.png",
+        "../../assets/images/sy/商城V享好物3.png",
+        "../../assets/images/sy/商城V享好物4.png",
+        "../../assets/images/sy/商城V享好物5.png",
+        "../../assets/images/sy/商城V享好物6.png"
+      ]
+    },
+    {
+      "name": "商城 大牌超值汇",
+      "bgImg": "../../assets/images/sy/商城大牌超值汇1.png",
+      "sm-images": [
+        "../../assets/images/sy/商城大牌超值汇2.png",
+        "../../assets/images/sy/商城大牌超值汇3.png",
+        "../../assets/images/sy/商城大牌超值汇4.png",
+        "../../assets/images/sy/商城大牌超值汇5.png",
+        "../../assets/images/sy/商城大牌超值汇6.png"
+      ]
+    },
+    {
+      "name": "K-Music",
+      "bgImg": "../../assets/images/sy/K-MUSIC1.png",
+      "sm-images": [
+        "../../assets/images/sy/K-MUSIC2.png",
+        "../../assets/images/sy/K-MUSIC3.png",
+        "../../assets/images/sy/K-MUSIC4.png",
+        "../../assets/images/sy/K-MUSIC5.png"
+      ]
+    },
+    {
+      "name": "小书迷王国",
+      "bgImg": "../../assets/images/sy/小书迷王国1.png",
+      "sm-images": [
+        "../../assets/images/sy/小书迷王国2.png",
+        "../../assets/images/sy/小书迷王国3.png",
+        "../../assets/images/sy/小书迷王国4.png",
+        "../../assets/images/sy/小书迷王国5.png"
+      ]
+    }
+  ]
+}
