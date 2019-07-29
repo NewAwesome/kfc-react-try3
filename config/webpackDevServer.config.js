@@ -81,7 +81,7 @@ module.exports = function(proxy, allowedHost) {
     public: allowedHost,
     proxy: {
       '/json': {
-        target: 'http://localhost:9999',
+        target: ' https://www.easy-mock.com/mock/5d3acac9c307fe40c3fcb541/kfc',
         changeOrigin: true,
         pathRewrite: {
           '^/json': ''

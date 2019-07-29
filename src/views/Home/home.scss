@@ -6,6 +6,7 @@
 
 .container {
   height: inherit;
+  overflow: hidden;
 
   // start
   .scroll-container {
@@ -113,7 +114,7 @@
         padding: 0.3rem 0.16rem;
         padding-bottom: 0.1rem;
 
-        >img {
+        img {
           width: 1.6rem;
           margin: 0 0.05rem;
         }
@@ -214,24 +215,34 @@
             }
           }
 
-          >img {
+          >.img-bg {
+            margin: 0 auto;
             margin-top: 0.1rem;
             width: 3.37rem;
+            height: 1.42rem;
+
+            img {
+              width: 3.37rem;
+            }
           }
 
           .li-banner {
             margin: 0.1rem 0.19rem 0 0.19rem;
 
             .li-banner-ul {
-              width: 5.67rem;
               overflow: hidden;
 
               >li {
                 float: left;
                 margin-right: 0.09rem;
 
-                >img {
+                >.img-sm {
                   width: 1.35rem;
+                  height: 1.73rem;
+
+                  img {
+                    width: 1.35rem;
+                  }
                 }
 
                 &:last-child {

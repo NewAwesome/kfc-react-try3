@@ -1,0 +1,171 @@
+.container {
+  height: inherit;
+
+  .header {
+    padding: .1rem .1rem;
+    position: relative;
+    height: 0.63rem;
+    box-sizing: border-box;
+
+    .header-icon1 {
+      color: #DA2E39;
+      font-size: .24rem;
+      margin-top: .05rem;
+      vertical-align: middle;
+    }
+
+    input {
+      margin: 0 .1rem;
+      border-radius: .18rem;
+      border: 1px solid #fff;
+      background: #F1F1F1;
+      height: 0.36rem;
+      width: 79%;
+      vertical-align: middle;
+      padding: 0 .4rem;
+      box-sizing: border-box;
+    }
+
+    .header-icon2 {
+      color: #DA2E39;
+      font-size: .26rem;
+      vertical-align: middle;
+    }
+
+    .icon-abs {
+      position: absolute;
+      top: .18rem;
+      left: .58rem;
+      font-size: .20rem;
+    }
+  }
+
+  .banner {
+    .swiper-slide {
+      width: 90%;
+      padding: 0 5%;
+      box-sizing: border-box;
+
+      img {
+        width: 3.37rem;
+      }
+    }
+  }
+
+  .vgold {
+    display: flex;
+    width: 90%;
+    align-items: center;
+    margin: .15rem 5%;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    box-shadow: 0px 6px 12px -4px rgba(114, 116, 116, 0.8);
+    height: 0.52rem;
+
+    .my {
+      flex: 1;
+      font-size: .20rem;
+      font-weight: bold;
+      color: #db3036;
+      padding-left: .3rem;
+      box-sizing: border-box;
+    }
+
+    .goldnum {
+      display: flex;
+
+      h3 {
+        font-size: .24rem;
+        color: #db3036;
+        vertical-align: middle;
+      }
+
+      img {
+        margin-left: .1rem;
+        width: 0.24rem;
+        height: 0.24rem;
+        vertical-align: middle;
+      }
+
+      i {
+        font-size: .24rem;
+        color: #db3036;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: .14rem;
+    margin-top: .1rem;
+    margin-bottom: .2rem;
+
+    .nav-li {
+      width: 0.75rem;
+      text-align: center;
+      margin-top: .15rem;
+
+      img {
+        width: 0.6rem;
+        height: 0.6rem;
+      }
+
+      p {
+        margin-top: .1rem;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .shop-list {
+    .exhibition {
+      border-top: 1px solid #fff;
+      margin-top: .4rem;
+
+      .title {
+        display: flex;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+
+        img {
+          width: 1rem;
+          height: 0.3rem;
+        }
+
+        p {
+          white-space: nowrap;
+          color: #db3036;
+          font-weight: 800;
+          margin-left: 10px;
+          margin-right: 10px;
+          font-size: .18rem;
+        }
+      }
+
+      .exhibition-img {
+        margin-top: .4rem;
+
+        .img-bg {
+          text-align: center;
+
+          img {
+            width: 3.37rem;
+          }
+        }
+
+        .img-sm {
+          text-align: center;
+          margin-top: .1rem;
+
+          img {
+            margin-left: .09rem;
+            width: 1.08rem;
+          }
+        }
+      }
+    }
+  }
+}

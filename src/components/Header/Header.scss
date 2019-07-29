@@ -1,0 +1,39 @@
+.header-container {
+  height: 0.64rem;
+  width: 100%;
+  background: #F7F7F7;
+  display: flex;
+  box-shadow: 0 0px 5px -2px;
+
+  >.left-icon {
+    height: 0.64rem;
+    line-height: .84rem;
+    padding-left: .2rem;
+    flex: 1;
+
+    i {
+      font-size: .22rem;
+      color: #E32C37;
+    }
+
+  }
+
+  >.title {
+    height: 0.64rem;
+    line-height: .84rem;
+    flex: 0.8;
+    background: url('../../assets/images/header.png') no-repeat 15px 55px;
+
+    >span {
+      font-weight: bold;
+      font-size: .18rem;
+      color: #E32C37;
+
+    }
+  }
+
+  >.right-icon {
+    flex: 1;
+
+  }
+}

@@ -1,0 +1,219 @@
+@import '../../assets/styles/mixins.scss';
+
+.takeout-container {
+  .header {
+    height: 0.38rem;
+    width: 100%;
+    line-height: .38rem;
+
+    i {
+      color: #E94E4E;
+      font-size: .24rem;
+      margin-left: .1rem;
+      vertical-align: middle;
+    }
+
+    span {
+      color: #E94E4E;
+      vertical-align: middle;
+      font-size: .15rem;
+      font-weight: 600;
+      margin-left: .1rem;
+    }
+  }
+
+  .banner {
+    margin-top: .14rem;
+    text-align: center;
+
+    img {
+      width: 94%;
+      height: 1.04rem;
+    }
+  }
+
+  .cartbag {
+    margin-top: .1rem;
+    float: right;
+    box-shadow: 0 0 .12rem rgba(176, 177, 177, 0.5);
+    border-radius: .4rem 0 0 .4rem;
+    padding: .12rem 0.2rem;
+    padding-right: .3rem;
+
+    span {
+      font-size: .12rem;
+      font-weight: 600;
+
+      i {
+        font-style: normal;
+        font-weight: bolder;
+        color: #E94E4E;
+      }
+    }
+  }
+
+  .allscroll {
+    z-index: 44;
+    position: absolute;
+    top: .38rem;
+    bottom: 0;
+
+    .allscroll-container {
+      overflow: hidden;
+
+      .content {
+        margin-top: .7rem;
+        position: relative;
+        height: 6rem;
+        overflow: hidden;
+
+        .menu-wrapper {
+          background: #f3f5f7;
+          width: 0.8rem;
+          white-space: nowrap;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          z-index: 42;
+          text-align: center;
+
+          .menu-item {
+            display: table;
+            height: 0.54rem;
+            width: 0.56rem;
+            padding: 0 .12rem;
+            line-height: .14rem;
+
+            span {
+              display: table-cell;
+              vertical-align: middle;
+              width: 0.56rem;
+              border: none;
+              border-bottom: .01rem solid rgba(7, 17, 27, 0.1);
+              font-size: .12rem;
+            }
+
+            &.current {
+              z-index: 10;
+              margin-top: -0.01rem;
+              background: #fff;
+              font-weight: 700;
+            }
+          }
+        }
+
+        .foods-wrapper {
+          position: absolute;
+          left: .8rem;
+          top: 0;
+          bottom: 0;
+          height: 6rem;
+          width: 100%;
+          background: #fff;
+          z-index: 42;
+
+          .food-list {
+
+            >h1 {
+              padding-left: 1.35rem;
+              height: .26rem;
+              line-height: .26rem;
+              font-size: .12rem;
+              font-weight: normal;
+              color: rgb(147, 153, 159);
+            }
+
+            .food-item {
+              width: 2.6rem;
+              position: relative;
+              display: flex;
+              margin: .18rem;
+              padding-bottom: .18rem;
+              box-shadow: 0 .03rem .12rem rgba(92, 92, 92, 0.1);
+              padding-top: .1rem;
+
+              .item-img {
+                img {
+                  width: 1.5rem;
+                  height: 0.9rem;
+                }
+              }
+
+              .item-desc {
+                flex: 1;
+
+                >h2 {
+                  float: right;
+                  text-overflow: ellipsis;
+                  margin: .15rem .05rem .10rem 0;
+                  height: .14rem;
+                  line-height: .14rem;
+                  font-size: .14rem;
+                  color: rgb(7, 17, 27);
+                }
+
+                .price {
+                  font-weight: 700;
+                  position: absolute;
+                  top: .55rem;
+                  right: 0;
+
+                  span {
+                    margin-right: 8px;
+                    font-size: 14px;
+                    color: rgb(240, 20, 20);
+                  }
+                }
+
+                .cart-control-wrapper {
+                  position: absolute;
+                  right: 0;
+                  bottom: .08rem;
+
+                  .cart-control {
+                    .cart-decrease {
+                      display: inline-block;
+                      padding: .06rem;
+                      opacity: 1;
+                      transform: translate3d(0, 0, 0);
+                    }
+
+                    .cart-count {}
+
+                    .cart-add {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.cartbag-abs {
+  display: none;
+  width: 100%;
+  position: absolute;
+  top: 1.62rem;
+  right: 0;
+  text-align: right;
+  font-size: .12rem;
+  font-weight: 600;
+  height: .32rem;
+  line-height: .32rem;
+  padding-right: .2rem;
+  border-top: 1px solid #ddd;
+  background: #fff;
+  box-shadow: 0 0 0.12rem rgba(176, 177, 177, 0.5);
+  // @include border_1px;
+
+  span {
+    i {
+      font-style: normal;
+      font-weight: bolder;
+      color: #E94E4E;
+    }
+  }
+}

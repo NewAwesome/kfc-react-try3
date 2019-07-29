@@ -10,9 +10,8 @@
     flex: 1;
     overflow: hidden;
     width: 100%;
-    background: antiquewhite;
+    // background: antiquewhite;
     height: inherit;
-
   }
 
   >.footer {
@@ -45,5 +44,15 @@
         color: #C83127;
       }
     }
+  }
+}
+
+// 组件过渡动画。配合react-transition-group插件使用
+.translate-enter {
+  transform: translate3d(100%, 0, 0);
+
+  &.translate-enter-active {
+    transition: transform .3s;
+    transform: translate3d(0, 0, 0);
   }
 }

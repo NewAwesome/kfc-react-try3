@@ -14,6 +14,8 @@ const Home = withSuspense(lazy(() => import('../views/Home/Home')))
 const Order = withSuspense(lazy(() => import('../views/Order/Order')))
 const Shop = withSuspense(lazy(() => import('../views/Shop/Shop')))
 const User = withSuspense(lazy(() => import('../views/User/User')))
+const City = withSuspense(lazy(() => import('../views/City/City')))
+const Takeout = withSuspense(lazy(() => import('../views/Takeout/Takeout')))
 
 const router = [
   {
@@ -31,6 +33,14 @@ const router = [
   {
     path: '/user',
     component: User
+  },
+  {
+    path: '/city',
+    component: City
+  },
+  {
+    path: '/takeout',
+    component: Takeout
   },
   {
     component: () => (

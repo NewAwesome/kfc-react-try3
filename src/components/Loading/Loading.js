@@ -1,5 +1,5 @@
 import React from 'react'
-import loadingImg from './Loading.gif'
+import loadingImg from './loading.gif'
 import './Loading.scss'
 
 // 接收两个props。1. show "bool",为true表示显示loading
