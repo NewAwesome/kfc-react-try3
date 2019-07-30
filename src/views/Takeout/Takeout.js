@@ -1,7 +1,18 @@
 import React from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Redirect,
+  NavLink
+} from 'react-router-dom'
 import './takeout.scss'
 import axios from '../../api/axios'
 import Scroll from '../../components/Scroll/Scroll'
+import Loading from '../../components/Loading/Loading'
+import Swiper from 'swiper'
+import 'swiper/dist/css/swiper.min.css'
+import CartControl from './CartControl'
+import BottomCart from './BottomCart'
 
 class Takeout extends React.Component {
   constructor(props) {
@@ -22,14 +33,18 @@ class Takeout extends React.Component {
         right: true
       },
       heightArr: [],
-      indexNum: 0
+      indexNum: 0,
+      loading: true
     }
   }
   componentWillMount() {
     axios.get('/foods').then(res => {
       this.setState({
-        foodsList: res.data.data
+        foodsList: res.data.data,
+        loading: false
       })
+      //
+      console.log(res.data.data)
       // 计算heightArr数组
       let h = 0
       this.state.heightArr.push(h)
@@ -38,6 +53,16 @@ class Takeout extends React.Component {
         this.state.heightArr.push(h)
       })
     })
+  }
+  componentDidMount() {
+    if (!this.sliderSwiper) {
+      this.sliderSwiper = new Swiper('.swiper-container', {
+        direction: 'horizontal',
+        autoplay: true,
+        speed: 800,
+        centeredSlides: true
+      })
+    }
   }
   // 索引列表state值改变时触发钩子
   componentDidUpdate() {
@@ -53,6 +78,7 @@ class Takeout extends React.Component {
   wholeScroll = ({ y }) => {
     let cartbagDOM = this.cartbagRef.current
     // 吸顶元素
+    console.log(y)
     if (y <= -162) {
       cartbagDOM.style.display = 'block'
     } else {
@@ -96,7 +122,9 @@ class Takeout extends React.Component {
       <div className="takeout-container">
         {/* 顶部 */}
         <div className="header">
-          <i className="iconfont">&#xe602;</i>
+          <NavLink to="/home">
+            <i className="iconfont">&#xe602;</i>
+          </NavLink>
           <span>北京亨泰大厦</span>
         </div>
         {/* 整体scroll */}
@@ -105,7 +133,28 @@ class Takeout extends React.Component {
             <div className="allscroll-container">
               {/* banner */}
               <div className="banner">
-                <img src={require('../../assets/images/banner1.png')} alt="" />
+                <div className="swiper-container">
+                  <div className="swiper-wrapper">
+                    <div className="swiper-slide">
+                      <img
+                        src={require('../../assets/images/shop/lb1.png')}
+                        alt=""
+                      />
+                    </div>
+                    <div className="swiper-slide">
+                      <img
+                        src={require('../../assets/images/shop/lb2.png')}
+                        alt=""
+                      />
+                    </div>
+                    <div className="swiper-slide">
+                      <img
+                        src={require('../../assets/images/shop/lb3.png')}
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
               {/* 卡包 */}
               <div className="cartbag">
@@ -165,23 +214,7 @@ class Takeout extends React.Component {
                                       <div className="price">
                                         <span>￥{itemm.price}</span>
                                       </div>
-                                      <div className="cart-control-wrapper">
-                                        <div className="cart-control">
-                                          <div className="cart-decrease">
-                                            <img
-                                              src={require('../../assets/images/jian.png')}
-                                              alt=""
-                                            />
-                                          </div>
-                                          <div className="cart-count">1</div>
-                                          <div className="cart-add">
-                                            <img
-                                              src={require('../../assets/images/add.png')}
-                                              alt=""
-                                            />
-                                          </div>
-                                        </div>
-                                      </div>
+                                      <CartControl />
                                     </div>
                                   </li>
                                 )
@@ -196,7 +229,11 @@ class Takeout extends React.Component {
               </div>
             </div>
           </Scroll>
+          {/* 购物车 */}
+          <BottomCart />
         </div>
+        {/* loading */}
+        <Loading title="Loading..." show={this.state.loading} />
       </div>
     )
   }

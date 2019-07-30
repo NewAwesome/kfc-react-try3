@@ -49,6 +49,7 @@ class Scroll extends React.Component {
     }
   }
   scrollTo(x = 0, y = 0) {
+    
     if (this.bScroll) {
       this.bScroll.scrollTo(x, y, 700)
     }

@@ -1,6 +1,7 @@
 @import '../../assets/styles/mixins.scss';
 
 .takeout-container {
+
   .header {
     height: 0.38rem;
     width: 100%;
@@ -26,9 +27,13 @@
     margin-top: .14rem;
     text-align: center;
 
-    img {
-      width: 94%;
-      height: 1.04rem;
+    .swiper-slide {
+      width: 100%;
+      text-align: center;
+
+      img {
+        height: 1.3rem;
+      }
     }
   }
 
@@ -53,10 +58,11 @@
   }
 
   .allscroll {
+    width: 100%;
     z-index: 44;
     position: absolute;
     top: .38rem;
-    bottom: 0;
+    bottom: 0.5rem;
 
     .allscroll-container {
       overflow: hidden;
@@ -64,7 +70,7 @@
       .content {
         margin-top: .7rem;
         position: relative;
-        height: 6rem;
+        height: 5.24rem;
         overflow: hidden;
 
         .menu-wrapper {
@@ -164,25 +170,6 @@
                     color: rgb(240, 20, 20);
                   }
                 }
-
-                .cart-control-wrapper {
-                  position: absolute;
-                  right: 0;
-                  bottom: .08rem;
-
-                  .cart-control {
-                    .cart-decrease {
-                      display: inline-block;
-                      padding: .06rem;
-                      opacity: 1;
-                      transform: translate3d(0, 0, 0);
-                    }
-
-                    .cart-count {}
-
-                    .cart-add {}
-                  }
-                }
               }
             }
           }
@@ -201,9 +188,9 @@
   text-align: right;
   font-size: .12rem;
   font-weight: 600;
-  height: .32rem;
+  height: .36rem;
   line-height: .32rem;
-  padding-right: .2rem;
+  padding-right: .3rem;
   border-top: 1px solid #ddd;
   background: #fff;
   box-shadow: 0 0 0.12rem rgba(176, 177, 177, 0.5);

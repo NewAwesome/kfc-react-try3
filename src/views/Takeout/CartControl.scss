@@ -1,0 +1,39 @@
+.cart-control-wrapper {
+  position: absolute;
+  right: 0;
+  bottom: .08rem;
+
+  .cart-control {
+    position: relative;
+
+    .cart-decrease {
+      position: absolute;
+      bottom: 0;
+      padding: .06rem;
+      opacity: 0;
+      transform: translate3d(0, 0, 0);
+      transition: all .4s;
+      vertical-align: middle;
+      margin-right: .06rem;
+    }
+
+    .cart-count {
+      visibility: hidden;
+      display: inline-block;
+      vertical-align: middle;
+      width: .1rem;
+      padding-right: .05rem;
+      line-height: .24rem;
+      text-align: center;
+      font-size: .12rem;
+      color: #db3036;
+    }
+
+    .cart-add {
+      display: inline-block;
+      padding: .06rem;
+      opacity: 1;
+      vertical-align: middle;
+    }
+  }
+}

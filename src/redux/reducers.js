@@ -4,26 +4,25 @@ import * as ActionTypes from './actionTypes'
  * reducer就是一个纯函数，接收旧的state和action，返回新的state
  */
 
-// 以下为示例代码
-
 //需要存储的初始状态数据
 const initialState = {
-  showStatus: false, //显示状态
-  song: {}, //当前歌曲
-  songs: [] //歌曲列表
+  totalNum: 0,
+  totalPrice: 0,
+  goodsList: []
 }
 //拆分Reducer
-//显示或隐藏播放状态
-function showStatus(showStatus = initialState.showStatus, action) {
+function addCart(state = initialState, action) {
   switch (action.type) {
-    case ActionTypes.SHOW_PLAYER:
-      return action.showStatus
+    case ActionTypes.ADD_CART:
+      return Object.assign({}, state, {
+        goodsList: addCartFn(action.good),
+        totalNum: state.totalNum + 1
+      })
     default:
-      return showStatus
+      return state
   }
 }
-// //修改当前歌曲
-// function song(song = initialState.song, action) {
+// function decreaseCart(song = initialState.song, action) {
 //   switch (action.type) {
 //     case ActionTypes.CHANGE_SONG:
 //       return action.song
@@ -31,8 +30,7 @@ function showStatus(showStatus = initialState.showStatus, action) {
 //       return song
 //   }
 // }
-// //添加或移除歌曲
-// function songs(songs = initialState.songs, action) {
+// function clearCart(songs = initialState.songs, action) {
 //   switch (action.type) {
 //     case ActionTypes.SET_SONGS:
 //       return action.songs
@@ -42,9 +40,13 @@ function showStatus(showStatus = initialState.showStatus, action) {
 //       return songs
 //   }
 // }
+
+// functions
+function addCartFn(good) {}
+
 //合并Reducer
 const reducer = combineReducers({
-  showStatus
+  // showStatus
   // song,
   // songs
 })
