@@ -6,12 +6,22 @@ import * as ActionTypes from './actionTypes'
 // export function showPlayer(showStatus) {
 //   return { type: ActionTypes.SHOW_PLAYER, showStatus }
 // }
+// good [Object]
 export function addCart(good) {
   return { type: ActionTypes.ADD_CART, good }
 }
+// goodName [String]
 export function decreaseCart(good) {
   return { type: ActionTypes.DECREASE_CART, good }
 }
 export function clearCart() {
   return { type: ActionTypes.CLEAR_CART }
 }
+// // price [number]
+// export function updatePrice(price) {
+//   return { type: ActionTypes.UPDATE_PRICE, price }
+// }
+// // count [number]
+// export function updateCount(count) {
+//   return { type: ActionTypes.UPDATE_COUNT, count }
+// }

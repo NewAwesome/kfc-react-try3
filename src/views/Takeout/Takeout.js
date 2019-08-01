@@ -17,7 +17,7 @@ import BottomCart from './BottomCart'
 class Takeout extends React.Component {
   constructor(props) {
     super(props)
-
+    console.log(props)
     // this.scrollRef = React.createRef()
     this.cartbagRef = React.createRef()
     this.indexUlRef = React.createRef()
@@ -214,7 +214,15 @@ class Takeout extends React.Component {
                                       <div className="price">
                                         <span>￥{itemm.price}</span>
                                       </div>
-                                      <CartControl />
+                                      <CartControl
+                                        currentFood={itemm}
+                                        currentCart={this.props.currentCart}
+                                        addCartAc={this.props.addCartAc}
+                                        decreaseCartAc={
+                                          this.props.decreaseCartAc
+                                        }
+                                        clearCartAc={this.props.clearCartAc}
+                                      />
                                     </div>
                                   </li>
                                 )
@@ -230,7 +238,12 @@ class Takeout extends React.Component {
             </div>
           </Scroll>
           {/* 购物车 */}
-          <BottomCart />
+          <BottomCart
+            currentCart={this.props.currentCart}
+            addCartAc={this.props.addCartAc}
+            decreaseCartAc={this.props.decreaseCartAc}
+            clearCartAc={this.props.clearCartAc}
+          />
         </div>
         {/* loading */}
         <Loading title="Loading..." show={this.state.loading} />

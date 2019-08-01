@@ -6,11 +6,16 @@ import Scroll from '../../components/Scroll/Scroll'
 class BottomCart extends React.Component {
   constructor(props) {
     super(props)
+    // console.log(this.props)
     this.listRef = React.createRef()
   }
-  componentDidMount() {
+  componentDidMount() {}
+  componentWillUpdate() {
     let listDOM = this.listRef.current
     // TO HERE!!! 这里要设置listDOM的height值。超出4个订单项目时设置为固定的2rem，未超过则不修改。
+    if (this.props.currentCart.length >= 4) {
+      listDOM.style.height = '2rem'
+    }
   }
   render() {
     return (
@@ -35,118 +40,23 @@ class BottomCart extends React.Component {
           <div className="shopping-list-content" ref={this.listRef}>
             <Scroll>
               <ul>
-                <li className="food">
-                  <span>1元葡式蛋挞</span>
-                  <div className="price">
-                    <span>￥33</span>
-                  </div>
-                  <CartControl />
-                </li>
-                <li className="food">
-                  <span>1元葡式蛋挞</span>
-                  <div className="price">
-                    <span>￥33</span>
-                  </div>
-                  <CartControl />
-                </li>
-                <li className="food">
-                  <span>1元葡式蛋挞</span>
-                  <div className="price">
-                    <span>￥33</span>
-                  </div>
-                  <CartControl />
-                </li>
-                <li className="food">
-                  <span>1元葡式蛋挞</span>
-                  <div className="price">
-                    <span>￥33</span>
-                  </div>
-                  <CartControl />
-                </li>
-                <li className="food">
-                  <span>1元葡式蛋挞</span>
-                  <div className="price">
-                    <span>￥33</span>
-                  </div>
-                  <CartControl />
-                </li>
-                <li className="food">
-                  <span>1元葡式蛋挞</span>
-                  <div className="price">
-                    <span>￥33</span>
-                  </div>
-                  <CartControl />
-                </li>
-                <li className="food">
-                  <span>1元葡式蛋挞</span>
-                  <div className="price">
-                    <span>￥33</span>
-                  </div>
-                  <CartControl />
-                </li>
-                <li className="food">
-                  <span>1元葡式蛋挞</span>
-                  <div className="price">
-                    <span>￥33</span>
-                  </div>
-                  <CartControl />
-                </li>
-                <li className="food">
-                  <span>1元葡式蛋挞</span>
-                  <div className="price">
-                    <span>￥33</span>
-                  </div>
-                  <CartControl />
-                </li>
-                <li className="food">
-                  <span>1元葡式蛋挞</span>
-                  <div className="price">
-                    <span>￥33</span>
-                  </div>
-                  <CartControl />
-                </li>
-                <li className="food">
-                  <span>1元葡式蛋挞</span>
-                  <div className="price">
-                    <span>￥33</span>
-                  </div>
-                  <CartControl />
-                </li>
-                <li className="food">
-                  <span>1元葡式蛋挞</span>
-                  <div className="price">
-                    <span>￥33</span>
-                  </div>
-                  <CartControl />
-                </li>
-                <li className="food">
-                  <span>1元葡式蛋挞</span>
-                  <div className="price">
-                    <span>￥33</span>
-                  </div>
-                  <CartControl />
-                </li>
-                <li className="food">
-                  <span>1元葡式蛋挞</span>
-                  <div className="price">
-                    <span>￥33</span>
-                  </div>
-                  <CartControl />
-                </li>
-                <li className="food">
-                  <span>1元葡式蛋挞</span>
-                  <div className="price">
-                    <span>￥33</span>
-                  </div>
-                  <CartControl />
-                </li>
-                <li className="food">
-                  <span>1元葡式蛋挞</span>
-                  <div className="price">
-                    <span>￥33</span>
-                  </div>
-                  <CartControl />
-                </li>
+                {this.props.currentCart.map(food => {
+                  return (
+                    <li className="food">
+                      <span>{food.name}</span>
+                      <div className="price">
+                        <span>￥{food.total}</span>
+                      </div>
+                      <CartControl
+                        currentFood={food}
+                        currentCart={this.props.currentCart}
+                        addCartAc={this.props.addCartAc}
+                        decreaseCartAc={this.props.decreaseCartAc}
+                        clearCartAc={this.props.clearCartAc}
+                      />
+                    </li>
+                  )
+                })}
               </ul>
             </Scroll>
           </div>

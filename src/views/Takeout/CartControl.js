@@ -5,37 +5,66 @@ import './CartControl.scss'
 class CartControl extends React.Component {
   constructor(props) {
     super(props)
+    // console.log(this.props.currentFood)
     this.decreaseRef = React.createRef()
     this.countRef = React.createRef()
-    this.state = {
-      // 表示本控制元素的商品数量
-      num: 0
+  }
+  // function:绑定this.currentNum
+  bindingNum() {
+    this.props.currentCart.forEach(item => {
+      if (item.name === this.props.currentFood.name)
+        this.currentNum = item.count
+    })
+  }
+  componentDidMount() {
+    this.bindingNum()
+    let decreaseDOM = this.decreaseRef.current
+    let countDOM = this.countRef.current
+    if (this.currentNum !== 0 && this.currentNum !== undefined) {
+      countDOM.style.visibility = 'visible'
+      decreaseDOM.style.pointerEvents = 'auto'
+      decreaseDOM.style.opacity = '1'
+      decreaseDOM.style.transform = 'translate3d(-0.32rem, 0, 0)'
+    } else {
+      countDOM.style.visibility = 'hidden'
+      decreaseDOM.style.pointerEvents = 'none'
+      decreaseDOM.style.opacity = '0'
+      decreaseDOM.style.transform = 'translate3d(0, 0, 0)'
+    }
+  }
+  componentDidUpdate() {
+    this.bindingNum()
+    if (this.currentNum === 0 || this.currentNum === undefined) {
+      let decreaseDOM = this.decreaseRef.current
+      let countDOM = this.countRef.current
+      countDOM.style.visibility = 'hidden'
+      decreaseDOM.style.pointerEvents = 'none'
+      decreaseDOM.style.opacity = '0'
+      decreaseDOM.style.transform = 'translate3d(0, 0, 0)'
     }
   }
   addBtn = () => {
     let decreaseDOM = this.decreaseRef.current
     let countDOM = this.countRef.current
-    if (this.state.num == 0) {
+    if (this.currentNum !== 0) {
       countDOM.style.visibility = 'visible'
+      decreaseDOM.style.pointerEvents = 'auto'
       decreaseDOM.style.opacity = '1'
       decreaseDOM.style.transform = 'translate3d(-0.32rem, 0, 0)'
     }
-    this.setState(prevState => ({
-      num: prevState.num + 1
-    }))
+    this.props.addCartAc(this.props.currentFood)
   }
   decreaseBtn = () => {
-    if (this.state.num == 0) return
+    if (this.currentNum == 0) return
     let decreaseDOM = this.decreaseRef.current
     let countDOM = this.countRef.current
-    if (this.state.num == 1) {
+    if (this.currentNum == 1) {
       countDOM.style.visibility = 'hidden'
+      decreaseDOM.style.pointerEvents = 'none'
       decreaseDOM.style.opacity = '0'
       decreaseDOM.style.transform = 'translate3d(0, 0, 0)'
     }
-    this.setState(prevState => ({
-      num: prevState.num - 1
-    }))
+    this.props.decreaseCartAc(this.props.currentFood)
   }
   render() {
     return (
@@ -57,7 +86,13 @@ class CartControl extends React.Component {
           </div>
           {/* 控制display */}
           <div className="cart-count" ref={this.countRef}>
-            {this.state.num}
+            {this.props.currentCart.filter(item =>
+              item.name === this.props.currentFood.name ? true : false
+            )[0]
+              ? this.props.currentCart.filter(item =>
+                  item.name === this.props.currentFood.name ? true : false
+                )[0].count
+              : 0}
           </div>
           <div className="cart-add" onClick={this.addBtn}>
             <img
